@@ -17,7 +17,7 @@
     "ui"
   ],
   "scripts": {
-    "babel":"babel src --out-dir lib",
+    "babel": "babel src --out-dir lib",
     "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors"
   },
   "repository": {
@@ -40,13 +40,14 @@
     "babel-loader": "^5.3.2",
     "babel-plugin-dev-expression": "^0.1.0",
     "babel-runtime": "^5.8.29",
+    "classnames": "^2.2.0",
     "colors": "^1.1.2",
     "css-loader": "^0.21.0",
     "file-loader": "^0.8.4",
     "json-loader": "^0.5.3",
     "lodash": "^3.10.1",
-    "style-loader": "^0.13.0",
     "react-router": "^1.0.0-rc3",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.3",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.12.1"
