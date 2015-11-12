@@ -3,58 +3,53 @@ import { css , pureRender } from '../enhance/index';
 import Icon from '../Icon';
 import createEnhance from '../core/createEnhance';
 /**
- * NavItem 组件(导航栏子组件)
+ * FooterItem 组件(底部导航栏子组件)
  * author:LGP
  */
 @createEnhance(css,pureRender)
-export default class NavItem extends Component{
+export default class FooterItem extends Component{
     static propTypes = {
-        link:PropTypes.bool,
-        disabled:PropTypes.bool,
-        position:PropTypes.string,
-        ComponentClass:React.PropTypes.string
+        active:PropTypes.bool,
+        disabled:PropTypes.bool
     };
     static defaultProps = {
-        link:false,
-        disabled:false,
-        ComponentClass:"button"
+        active:false,
+        disabled:false
     };
     
     render=()=>{
         let {
             className ,
             icon ,
+            active,
             text ,
-            position ,
-            link ,
             disabled ,
-            ComponentClass ,
             ...other 
         } = this.props; 
 
-        const isLeft = position == "left" ;
-        console.log(link)
+      
         const classSet = {
             disabled,
-            "button-link":link,
-            "pull-left":isLeft,
-            "pull-right":!isLeft
+            active
         }
-
         //图标组件
         const iconComponent = !icon ? null : (
             <Icon icon={icon} />
         );
-      
+        //文本
+        const textComponent = iconComponent ? (
+            <span className="tab-label">
+                {text}
+            </span>
+        ) : text;
         //拼装整体组件
         let  contentComponent ;
-        ComponentClass = !ComponentClass ? "a":ComponentClass;
-        
+       
         return (
-            <ComponentClass className={this.mergeClass("button button-nav", classSet,className)}>
+            <a className={this.mergeClass("tab-item", classSet,className)} href="javascript:;">
                 {iconComponent}
-                {text}
-            </ComponentClass>
+                {textComponent}
+            </a>
         );
     }
 }

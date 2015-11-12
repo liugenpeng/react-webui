@@ -19,7 +19,7 @@ export default class Icon extends Component{
             color
         };
         return (
-          <span  {...other} className={this.mergeClass("icon ",iconClassName)} ></span>
+          <span  {...other} className={this.mergeClass("icon ",iconClassName)} style={iconStyle}></span>
         );
     }
    

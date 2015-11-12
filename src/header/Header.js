@@ -3,11 +3,11 @@ import { css , pureRender } from '../enhance/index';
 import createEnhance from '../core/createEnhance';
 
 /**
- * NavItem 组件(导航栏)
+ * Header组件(导航栏)
  * author:LGP
  */
 @createEnhance(css)
-export default class NavBar extends Component{
+export default class Header extends Component{
     static propTypes = {
         title:React.PropTypes.string
     };
