@@ -45,9 +45,12 @@
     "css-loader": "^0.21.0",
     "file-loader": "^0.8.4",
     "json-loader": "^0.5.3",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
     "lodash": "^3.10.1",
     "react-router": "^1.0.0-rc3",
     "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
     "webpack": "^1.12.3",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.12.1"

@@ -1,5 +1,5 @@
 const constant = {
-    col: {
+    COLS: {
         '5': 'col-5',
         '10': 'col-10',
         '15': 'col-15',

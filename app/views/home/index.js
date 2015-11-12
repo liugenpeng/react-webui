@@ -1,24 +1,17 @@
 import React , { Component } from 'react';
-import Image from '../../../src/image';
+import NavBar from '../../../src/nav/NavBar';
+import NavItem from '../../../src/nav/NavItem';
 export default class Home extends Component {
     constructor(){
         super();
-        this.state={
-            url:"http://react-bootstrap.github.io/assets/thumbnail.png"
-        };
-    }
-    onClick=(e)=>{
-       this.setState({
-            url:"http://react-bootstrap.github.io/assets/thumbnail.png"
-       });
+        
     }
     render=()=>{
         return (
-            <div>
-                <Image ref="imgs" src={this.state.url}
-                    title="xxx" onClick={::this.onClick} />
-                
-            </div>
+            <NavBar title="绩效绩效绩效绩效绩">
+                <NavItem text="返回" icon="left" link position="left" />
+                <NavItem text="菜单1" position="right" />
+            </NavBar>
         );
   }
 } 

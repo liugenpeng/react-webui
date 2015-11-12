@@ -1,27 +1,25 @@
 import React , { Component } from 'react';
-import { pureRender } from './enhance/index';
+import { css,pureRender } from './enhance/index';
 import createEnhance from './core/createEnhance'
 /**
  * 图标组件
  */
-@createEnhance(pureRender)
+@createEnhance(css,pureRender)
 export default class Icon extends Component{
     static propTypes = {
       fontSize:React.PropTypes.string,
       color:React.PropTypes.string
     };
-    static defaultProps = {
-        fontSize:"12"
-        color:'#FFFFFF'
-    };
+   
     render=()=>{
         const { fontSize , color , icon , ...other } = this.props;
+        const iconClassName = "icon-"+icon;
         const iconStyle = {
             fontSize,
             color
         };
         return (
-          <i  {...other} className=`icon ${icon}` style={iconStyle}></i>
+          <span  {...other} className={this.mergeClass("icon ",iconClassName)} ></span>
         );
     }
    

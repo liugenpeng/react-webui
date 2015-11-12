@@ -34,6 +34,10 @@ module.exports = function(options) {
             }
         }
         ,{ test: /\.css$/, loader: 'style-loader!css-loader' }
+        ,{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader' }
+        ,{ test: /\.(ttf|eot|svg)?$/, loader: "file-loader" }
+        ,{ test: /\.png$/, loader: "file-loader" }
+        ,{test: /\.woff$/,   loader: "url?limit=10000&minetype=application/font-woff"}
       ]
 
    

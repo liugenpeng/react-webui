@@ -5,10 +5,10 @@ import createEnhance from './core/createEnhance';
 @createEnhance(css,pureRender)
 export default class Row extends Component{
     static propTypes= {
-        componentClass:React.PropTypes.string
+        ComponentClass:React.PropTypes.string
     };
     static defaultProps = {
-        componentClass: 'div'
+        ComponentClass: 'div'
     };
    
     render=()=>{
