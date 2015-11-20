@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "babel": "babel src --out-dir lib",
-    "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors"
+    "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
+    "test" :"karma start"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,21 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.12.3",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^1.12.1",
+     "karma": "~0.13.10",
+    "karma-chrome-launcher": "~0.2.1",
+    "karma-cli": "0.1.1",
+    "karma-coverage": "^0.5.2",
+    "karma-coveralls": "^1.1.2",
+    "karma-firefox-launcher": "~0.1.6",
+    "karma-mocha": "~0.2.0",
+    "karma-mocha-reporter": "^1.1.1",
+  
+    "karma-sinon-chai": "^1.1.0",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "^1.7.0",
+    "sinon": "^1.17.1",
+    "sinon-chai": "^2.8.0",
+    "chai": "^3.3.0"
   }
 }
