@@ -15,7 +15,8 @@ module.exports = function(config){
                 loaders: [
                     { 
                         test: /\.js$/, 
-                        loader: 'babel-loader' 
+                        loader: 'babel-loader',
+                        exclude: /node_modules/
                     }
                 ]
             } 
@@ -26,9 +27,8 @@ module.exports = function(config){
         webpackServer: {
             noInfo: true
         },
-        reporters: ['mocha'],
-       
-        singleRun: false,
+        autoWatch: true,
+        singleRun: true,
         port: 9876,
         colors: true,
         browsers: [ 'Chrome' ],
