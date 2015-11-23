@@ -17,7 +17,8 @@ export default class ButtonRow extends Component{
 
         let cloneProps = {
             fill:false,
-            big:big,
+            wrap:false,
+            big,
             color,
             round
         };

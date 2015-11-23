@@ -9,13 +9,14 @@ import { Router, Route, Redirect } from 'react-router';
 //视图
 import App from './app.js';
 import Home from './views/home/index.js';
-
+import Tabs from './views/tabs/index.js';
 //设置路由
 const routes = (
     <Router>
         <Route component={App}>
             <Redirect from="/" to="/home" />
             <Route path="/home" name="home" component={Home} />
+            <Route path="/tabs" name="tabs" component={Tabs} />
         </Route>
     </Router>
 )

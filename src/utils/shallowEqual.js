@@ -1,4 +1,5 @@
 export default function shallowEqual(objA, objB) {
+   debugger;
   if (objA === objB) {
     return true;
   }

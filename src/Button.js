@@ -1,8 +1,8 @@
 import React , { Component , PropTypes } from 'react';
 import { css,pureRender } from './enhance/index';
-import createEnhance from './core/createEnhance'
+import createEnhance from './core/createEnhance';
 
-@createEnhance(css,pureRender)
+@createEnhance(css)
 export default class Button extends Component{
     static displayName = "Button";
     static propTypes = {
@@ -11,7 +11,8 @@ export default class Button extends Component{
         fill:PropTypes.bool,
         big:PropTypes.bool,
         round:PropTypes.bool,
-        active:PropTypes.bool
+        active:PropTypes.bool,
+        wrap:PropTypes.bool
     };
     static get defaultProps(){
         return {
@@ -20,7 +21,8 @@ export default class Button extends Component{
             big:false,
             round:false,
             active:false,
-            href:"javascript:;"
+            href:"javascript:;",
+            wrap:true
         }
     }
     _getColorClassName=(color)=>{
@@ -29,7 +31,7 @@ export default class Button extends Component{
     render=()=>{
         const {   color , disabled , fill , 
             big , round , active , inline , href ,
-            className, children , ...other
+            className, children ,wrap, ...other
         } = this.props;
         
         let classesSet = {
@@ -40,12 +42,16 @@ export default class Button extends Component{
             active
         };
         let colorCls = this._getColorClassName(color);
-       
-        return (
-            <a {...other} href={href} className={this.mergeClass("button wi-button",classesSet,colorCls,className)}>
+        
+        let buttonEl = (
+            <a {...other} href={href} className={this.mergeClass("button",classesSet,colorCls,className)}>
                 { children }
             </a>
         );
+        let resultElement ;
+        resultElement = wrap ? (<p>{buttonEl}</p>):(buttonEl);
+        return resultElement
+        
     }
    
 }

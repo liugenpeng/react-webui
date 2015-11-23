@@ -12,6 +12,7 @@ export default class Home extends Component {
            <div>
            <Button  round fill >按钮</Button>
            <Button  round fill color="success">按钮</Button>
+           <Button  round  disabled>按钮</Button>
            <ButtonRow >
                 <Button active>全部活动</Button>
                 <Button >与我相关</Button>
