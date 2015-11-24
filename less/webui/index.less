@@ -1,4 +1,13 @@
-
+html, body {
+ 	position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+div{
+	cursor:pointer;
+}
 .tabs .tab {
     display: none;
 }
@@ -13,3 +22,39 @@
 .buttons-tab .button.disabled:active{
 	border-bottom:transparent;
 }
+
+.view, .views {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+}
+.views {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.view {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+.page {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+    background: #efeff4;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    display:block;
+}
+

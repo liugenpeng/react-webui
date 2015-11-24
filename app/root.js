@@ -10,7 +10,7 @@ import { Router, Route, Redirect } from 'react-router';
 import App from './app.js';
 import Home from './views/home/index.js';
 import Tabs from './views/tabs/index.js';
-//设置路由
+
 const routes = (
     <Router>
         <Route component={App}>

@@ -42,7 +42,7 @@ module.exports = function(options) {
 
    
 
-    var publicPath =  "http://localhost:8080/" ;
+    var publicPath =  "http:// 10.129.10.45:8080/" ;
         
 
     var output = {
@@ -86,7 +86,7 @@ module.exports = function(options) {
     var devServer = {
         contentBase: "./app"
         //,host: (options.hotComponents)? IPv4 : 
-        ,host:"localhost"
+        ,host:"10.129.10.45"
         ,port: "8080"
         ,inline: true
         ,hot: options.hotComponents

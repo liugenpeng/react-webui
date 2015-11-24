@@ -2,6 +2,7 @@ import React , { Component , PropTypes } from 'react';
 import { css } from '../enhance/index';
 import createEnhance from '../core/createEnhance';
 import TabNav from './TabNav';
+
 //获取默认的activeKey
 function getDefaultActiveKey(props){
     let activeKey;
@@ -34,6 +35,7 @@ export default class Tabs extends Component{
             activeKey:_activeKey
         };
     }
+
     componentWillReceiveProps=(nextProps)=>{
         let { activeKey:newActiveKey } = this.state;
         if ('activeKey' in nextProps) {
@@ -41,8 +43,8 @@ export default class Tabs extends Component{
         }
         let found;
         React.Children.forEach(nextProps.children, (child) => {
-          if (child.key === newActiveKey) {
-            found = true;
+          if (child.key == newActiveKey) {
+             found = true;
           }
         });
         if (found) {
@@ -58,23 +60,40 @@ export default class Tabs extends Component{
         const { activeKey } = this.state;
 
         let { tab } = this._getTabs(children);
-
+      
         return (
             <div>
                 <TabNav 
-                key="tabnav"
-                onTabClick={::this.onTabClick}
-                panels={children}
-                activeKey={activeKey} />
-           
-            <div className="content-block">
-                <div className="tabs">
-                    {tab}
-                </div>
-            </div>
+                    key="tabnav"
+                    onTabClick={::this.onTabClick}
+                    panels={children}
+                    activeKey={activeKey} />
+                    
+                    <div className="content-block">
+                            <div className="tabs">
+                                {tab}
+                            </div>  
+                    </div>  
             </div>
         );
 
+    }
+    hanlderSwipedLeft=()=>{
+        const { activeKey } = this.state ;
+        const tabCount = React.Children.count(this.props.children);
+        let newActiveKey = Number.parseInt(activeKey,10)+1;
+        if(newActiveKey<=tabCount){
+            this.setActiveTab(newActiveKey);
+        }
+        
+    }
+    hanlderSwipedRight=()=>{
+        const { activeKey } = this.state ;
+        
+        let newActiveKey = Number.parseInt(activeKey,10)-1;
+        if(newActiveKey>=1){
+            this.setActiveTab(newActiveKey);
+        }
     }
     onTabDestroy=()=>{
         this.renderPanels[key] = void 0;
@@ -89,6 +108,7 @@ export default class Tabs extends Component{
     }
     //设置活动的tab
     setActiveTab=(newActiveKey,cb)=>{
+       
         this.setState({
             activeKey:newActiveKey
         },()=>{
@@ -102,26 +122,31 @@ export default class Tabs extends Component{
         const { activeKey }= state;
         const tab = [] , tabNav = [];
         let active  ;
+
         //遍历子节点
         React.Children.forEach(children, (child,index) => {
-           
+            
             const { key , props}  = child;
             const { title } = props;
            
-            active =  ( activeKey === key );
+            active =  ( activeKey == key );
            
 
             if (active || renderPanels[key]) {
                 child = active ? child : renderPanels[key];
                 renderPanels[key] = React.cloneElement(child, {
                     active,
-                    onDestroy: this.onTabDestroy.bind(this, key)
+                    onDestroy: this.onTabDestroy.bind(this, key),
+                    onSwipedLeft:this.hanlderSwipedLeft.bind(this,key),
+                    onSwipedRight:this.hanlderSwipedRight.bind(this,key)
                 });
                 tab.push(renderPanels[key]);
             } else {
                 //懒加载
                 tab.push(React.cloneElement(child, {
-                        active: false
+                        active: false,
+                        onSwipedLeft:this.hanlderSwipedLeft.bind(this,key),
+                        onSwipedRight:this.hanlderSwipedRight.bind(this,key)
                     }, [])
                 );
             }

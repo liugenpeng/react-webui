@@ -5,7 +5,7 @@ import Button from '../src/Button';
 describe('Button',()=>{
     it('should output an a',()=>{
         let instance = ReactTestUtils.renderIntoDocument( 
-            <Button>
+            <Button wrap={false}>
                 我是个按钮
             </Button>
         );
@@ -13,10 +13,10 @@ describe('Button',()=>{
     });
     it('should output className button',()=>{
         let instance = ReactTestUtils.renderIntoDocument( 
-            <Button>
+            <Button wrap={false}>
                 我是个按钮
             </Button>
         );
-        assert.equal(ReactDOM.findDOMNode(instance).className, 'button wi-button');
+        assert.equal(ReactDOM.findDOMNode(instance).className, 'button');
     });
 });

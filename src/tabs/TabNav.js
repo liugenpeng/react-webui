@@ -14,7 +14,7 @@ export default class TabNav extends Component{
         onTabClick && onTabClick(key);
     }
     getNavs=(children)=>{
-        const { panels, activeKey } = this.props;    
+        const { panels, activeKey } = this.props;   
         const rst = [];
         React.Children.forEach(panels, (child,index)=> {
             const { key , props } = child;
@@ -28,14 +28,14 @@ export default class TabNav extends Component{
             }
             
         
-            if (activeKey === key) {
+            if (activeKey == key) {
                 conf = {
                     ref:'activeTab',
                     cls:'active'
                 };
             }
 
-            let  cls = activeKey === key ? "active" : "";    
+            let  cls = activeKey == key ? "active" : "";    
             rst.push(
                 <Button {...events}  disabled={child.props.disabled} wrap={false} active={activeKey === key}
                     className={this.mergeClass("tab-link",conf.cls)}  key={key}
